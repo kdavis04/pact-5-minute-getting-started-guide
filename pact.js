@@ -10,6 +10,7 @@ module.exports = {
   pactFile,
 };
 
+// Setup mock (Pact) 
 const provider = new Pact({
   log: path.resolve(process.cwd(), "logs", "pact.log"),
   dir: path.resolve(process.cwd(), "pacts"),

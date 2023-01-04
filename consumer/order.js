@@ -1,3 +1,4 @@
+// Represents the data returned from the Order API
 class Order {
   constructor(id, items) {
     this.id = id;

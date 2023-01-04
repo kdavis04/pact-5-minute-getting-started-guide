@@ -1,5 +1,6 @@
+// Consumer Pact Test - capture contract
 // Setting up our test framework
-const chai = require("chai");
+const chai = require("chai"); // assertion library 
 const expect = chai.expect;
 const chaiAsPromised = require("chai-as-promised");
 chai.use(chaiAsPromised);
@@ -58,3 +59,10 @@ describe("Pact with Order API", () => {
     });
   });
 });
+
+// Run: nmp run test:consumer runs consumer.spec.js
+// Generates pact file in ./pacts that can be used to verify expectations of order API provider 
+// Repeat for other status codes 
+
+// Share pact using Pact Broker 
+// npm run pact:publish runs ./publish.sh

@@ -1,8 +1,9 @@
+// Provider pact test - contract verification
 const Verifier = require("@pact-foundation/pact").Verifier;
 const chai = require("chai");
 const chaiAsPromised = require("chai-as-promised");
 const { server } = require("./provider.js");
-const { providerName, pactFile } = require("../pact.js");
+const { providerName, pactFile } = require("../pact.js"); // contract files
 chai.use(chaiAsPromised);
 let port;
 let opts;
@@ -16,7 +17,7 @@ describe("Pact Verification", () => {
     opts = {
       // we need to know the providers name
       provider: providerName,
-      // we need to where the provider will be running,
+      // we need to know where the provider will be running,
       // we are starting it locally and defined the port above
       providerBaseUrl: `http://localhost:${port}`,
       // You can set the log level here, useful for debugging
@@ -117,3 +118,7 @@ describe("Pact Verification", () => {
       });
   });
 });
+
+// Run npm run test:provider to run provider.spec.js 
+// Starts Order API provider, connects to broker, pulls down relevant pacts to verify
+// Pact issues requests against provider and verifies expectations in pact file are met by Order API provider
